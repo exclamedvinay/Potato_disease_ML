@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Plant Disease Classifier</title>
+  </head>
+  <body>
+    <h1>Plant Disease Classifier</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+      <input type="file" name="image" accept="image/*">
+      <button type="submit">Classify</button>
+    </form>
+
+    <script>
+      const form = document.querySelector('form');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const response = await fetch('/predict', {
+          method: 'POST',
+          body: formData,
+        });
+        const result = await response.json();
+        window.location.href = `/result?class_label=${result.class_label}`;
+      });
+    </script>
+  </body>
+</html>

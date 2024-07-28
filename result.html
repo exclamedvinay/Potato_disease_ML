@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Result</title>
+  </head>
+  <body>
+    <h1>Result</h1>
+    <div id="result"></div>
+
+    <script>
+      const classLabel = parseInt(window.location.search.split('=')[1]);
+      const classLabels = ['Healthy Leaves', 'Late Blight']; // Add more class labels as needed
+      document.getElementById('result').innerHTML = `The image is classified as ${classLabels[classLabel]}`;
+    </script>
+  </body>
+</html>
